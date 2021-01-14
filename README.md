@@ -1,4 +1,4 @@
-reader is a program that I'm developing in order to make it easier for language learners to read stories. I ultimately hope to deploy the app and make a mobile app using reactNative.
+WIP Blog to post programming articles and display my react projects
 
 ## Available Scripts
 
