@@ -8,7 +8,7 @@ const Navbar = () => {
   const avatarSrc = `${process.env.PUBLIC_URL}/profile.jpeg`;
 
   return (
-    <Menu theme='light' mode='horizontal'>
+    <Menu theme='light' mode='horizontal' className='header'>
       <Menu.Item key='1'>
         <a href='/'>
           <Avatar src={avatarSrc} size='large' />
