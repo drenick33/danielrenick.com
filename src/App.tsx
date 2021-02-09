@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.less';
 import Navbar from './components/layout/Navbar';
 import Main from './components/pages/main/Main';
-import Blog from './components/pages/blog/Blog';
+import Post from './components/pages/blog/Post';
 import BlogBrowser from './components/pages/blog/BlogBrowser';
 import Portfolio from './components/pages/portfolio/Portfolio';
 import About from './components/pages/about/About';
@@ -21,7 +21,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={Main} />
           <Route exact path='/blog/' component={BlogBrowser} />
-          <Route path='/blog/:postId' component={Blog} />
+          <Route path='/blog/:postId' component={Post} />
           <Route exact path='/portfolio' component={Portfolio} />
           <Route exact path='/About' component={About} />
         </Switch>

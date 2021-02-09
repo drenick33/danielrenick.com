@@ -1,12 +1,10 @@
 const ParsePost = (post: string) => {
-  console.log(post);
   let startRegex = /<CODE>/g, //REG Expression to search for start of CODE Tag
     startResult,
     startIndices = []; //WHERE the Code Tag starts
   while ((startResult = startRegex.exec(post))) {
     startIndices.push(startResult.index); //Creates array of where <CODE> tags start
   }
-  console.log(startIndices);
 
   let endRegex = /<\/CODE>/g, //REG Expression to search for end of CODE Tag
     endResult,
@@ -14,13 +12,11 @@ const ParsePost = (post: string) => {
   while ((endResult = endRegex.exec(post))) {
     endIndices.push(endResult.index); //Creates array of where <CODE> tags end
   }
-  console.log(endIndices);
 
   let codeBlocks = [];
   for (let i = 0; i < endIndices.length; i++) {
     codeBlocks.push(startIndices[i], endIndices[i]);
   }
-  console.log(codeBlocks);
 
   let results = [];
 
@@ -191,7 +187,7 @@ const ParsePost = (post: string) => {
   //   isCode: true,
   // });
   // results.push({ string: post.slice(codeBlocks[1] + 7), isCode: false });
-  console.log(results);
+
   return results;
 };
 

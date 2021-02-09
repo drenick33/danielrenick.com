@@ -17,6 +17,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/react-syntax-highlighter": "^13.5.0",
     "antd": "^4.6.4",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "craco-less": "^1.17.0",
     "lodash": "^4.17.20",

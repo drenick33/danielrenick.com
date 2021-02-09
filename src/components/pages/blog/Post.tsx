@@ -3,6 +3,7 @@ import { get } from 'lodash';
 import CodeHighlighter from './CodeHighlighter';
 import ParsePost from './ParsePost';
 import { useThemeSwitcher } from 'react-css-theme-switcher';
+import { get as GET } from '../../../utils/httpMethods';
 
 // interface ICodeStrings {
 //   startIndex: number;
@@ -12,16 +13,33 @@ import { useThemeSwitcher } from 'react-css-theme-switcher';
 //   stringEnd?: number;
 // }
 
-const Blog = (props: any) => {
+const Post = (props: any) => {
+  let [rawText, setRawText] = useState('');
   let text = [{ string: '', isCode: false }];
   let title = get(props, 'title', 'Title');
   let [dark, setDark] = useState(false);
   let language = 'jsx';
   const { currentTheme } = useThemeSwitcher();
 
+  console.log(props);
+
   useEffect(() => {
+    //Handle style change
     switchTheme();
   }, [currentTheme]);
+
+  useEffect(() => {
+    //Get post text
+    getTextById();
+  }, []);
+
+  const getTextById = async () => {
+    console.log(props);
+    let _id = props.match.params.postId;
+    let data = await GET({ url: '/post/' + _id });
+    console.log(data);
+    setRawText(data.text);
+  };
 
   const switchTheme = () => {
     switch (currentTheme) {
@@ -75,15 +93,18 @@ const Blog = (props: any) => {\n\
 <CODE>Third and final code block</CODE> \n\
 I LOVE SASHA!";
 
-  text = ParsePost(codeString);
+  text = ParsePost(rawText);
 
   return (
-    <div className='mainContainer container-fluid'>
+    <div
+      className='mainContainer container-fluid'
+      style={{ marginTop: '50px' }}
+    >
       <div
         className='col'
         style={{
           boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
-          backgroundColor: dark ? '#36373a' : 'white', //@TODO Fix this for different themes
+          backgroundColor: dark ? '#36373a' : 'white',
           minWidth: '90%',
           maxWidth: '90%',
           marginLeft: 'auto',
@@ -119,4 +140,4 @@ I LOVE SASHA!";
   );
 };
 
-export default Blog;
+export default Post;
