@@ -20,6 +20,14 @@ const PortfolioCard = (props: any) => {
     tags: ['react', 'redux', 'typescript', 'mongoDB', 'nodeJS'],
   });
 
+  let settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   useEffect(() => {
     //Handle style change
     switchTheme();
@@ -33,6 +41,8 @@ const PortfolioCard = (props: any) => {
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
   };
+
+  console.log(props);
 
   const switchTheme = () => {
     switch (currentTheme) {
@@ -52,9 +62,6 @@ const PortfolioCard = (props: any) => {
     }
   };
 
-  console.log(windowWidth);
-
-  //@TODO - Fix background to match theme
   return (
     <div className='site-card-wrapper mt-5 container-fluid'>
       <div className='col'>
@@ -69,6 +76,7 @@ const PortfolioCard = (props: any) => {
               backgroundColor: dark ? '#36373a' : 'white',
               boxShadow:
                 '0 3px 9px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)',
+              marginBottom: '75px',
             }}
           >
             <img
