@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.less';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Navbar from './components/layout/Navbar';
 import Main from './components/pages/main/Main';
 import Post from './components/pages/blog/Post';
